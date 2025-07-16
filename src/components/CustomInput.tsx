@@ -17,7 +17,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
 					className={styles.input}
 					id={id}
 					name={id}
-					placeholder={`podaj ${id}`}
+					placeholder={`type your ${id}`}
 					ref={ref}
 					{...props}
 				/>
