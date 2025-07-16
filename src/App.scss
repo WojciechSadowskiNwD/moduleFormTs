@@ -1,0 +1,36 @@
+// Global styles
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+}
+
+//Big sections: 
+.container {
+	display: flex;
+	justify-content: space-around;
+	width: 80vw;
+	height: 92vh;
+	padding: 5px;
+	border: 1px solid #333;
+}
+.block {
+	width: 50%;
+	height: 100%;
+	padding: 10px;
+}
+.left_block {
+	margin-right: 5px;
+	background-color: rgba(255, 0, 0, 0.422);
+}
+.right_block {
+	background-color: rgba(0, 128, 0, 0.393);
+}

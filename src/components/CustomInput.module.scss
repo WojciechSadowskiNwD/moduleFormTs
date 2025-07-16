@@ -1,0 +1,28 @@
+.paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 60%;
+    min-width: 300px;
+    min-height: 70px;
+    padding: 10px;
+    margin: 5px;
+    background-color: #5f5a5a7b;
+}
+.label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.input{
+    margin-top: 5px;
+    padding: 8px 10px;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    text-align: center;
+    border-radius: 7px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+}
