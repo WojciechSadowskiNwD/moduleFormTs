@@ -9,7 +9,7 @@
     min-height: 70px;
     padding: 10px;
     margin: 5px;
-    background-color: #5f5a5a7b;
+    background-color: #5f5a5a2f;
 }
 .label {
     text-transform: uppercase;
@@ -25,4 +25,9 @@
     color: #000;
     background-color: #fff;
     border: none;
+
+    &:focus {
+        background-color: rgb(230, 252, 255);
+        outline: 2px solid rgb(158, 110, 149);
+    }
 }

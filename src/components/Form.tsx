@@ -12,6 +12,7 @@ export default function Form({ children, showFun }: FormProps) {
 		const data = Object.fromEntries(formData);
 
 		showFun(data);
+		event.currentTarget.reset();
 	}
 
 	return <form onSubmit={handleSubmit}>{children}</form>;

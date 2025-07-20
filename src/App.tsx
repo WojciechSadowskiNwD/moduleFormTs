@@ -1,7 +1,18 @@
-import { useRef } from "react";
-import CustomInput from "./components/CustomInput";
-import CustomButton from "./components/CustomButton";
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Form from "./components/Form";
+import SectionTitle from "./components/SectionTitle";
+import CustomInput from "./components/CustomInput";
+import InfoBoard from "./components/InfoBoard";
+import CustomButton from "./components/CustomButton";
+
+type FormDataProps = {
+	name: string;
+	surname: string;
+	age: number;
+	phone: number;
+	email: string;
+};
 
 function App() {
 	const inputNameRef = useRef<HTMLInputElement>(null);
@@ -10,21 +21,18 @@ function App() {
 	const inputPhoneRef = useRef<HTMLInputElement>(null);
 	const inputEmailRef = useRef<HTMLInputElement>(null);
 
-	function showData(data: unknown){
-		const currentData = data as {
-			name: string;
-			surname: string;
-			age: number;
-			phone: number;
-			email:string;
-		}
+	const [formData, setFormData] = useState<FormDataProps | null>(null);
 
+	function showData(data: unknown) {
+		const currentData = data as FormDataProps;
+		setFormData(currentData);
 		console.log(currentData);
 	}
 
 	return (
 		<div className="container">
 			<div className="block left_block">
+				<SectionTitle>Type your detalis</SectionTitle>
 				<Form showFun={showData}>
 					<CustomInput
 						label="name"
@@ -57,7 +65,16 @@ function App() {
 			</div>
 
 			{/* tu będę wyświetlał przechwycone dane z formularza */}
-			<div className="block right_block">prawy blok</div>
+			{formData && (
+				<motion.div
+					className="block right_block"
+					initial={{ x: 0, opacity: 0 }}
+					animate={{ x: '100%', opacity: 1 }}
+					transition={{ duration: 0.5, ease: "easeOut" }}
+				>
+					<InfoBoard data={formData} />
+				</motion.div>
+			)}
 		</div>
 	);
 }

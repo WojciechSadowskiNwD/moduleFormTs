@@ -13,24 +13,53 @@ body {
 	background-color: #fff;
 }
 
-//Big sections: 
+//Big sections:
 .container {
+	position: relative;
 	display: flex;
 	justify-content: space-around;
-	width: 80vw;
-	height: 92vh;
-	padding: 5px;
-	border: 1px solid #333;
+	height: 600px;
+	min-height: 600px;
+	max-height: 600px;
 }
 .block {
-	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 330px;
+	min-width: 330px;
+	max-width: 330px;
 	height: 100%;
-	padding: 10px;
+	padding: 15px;
+	border: 2px solid #3333335e;
 }
 .left_block {
-	margin-right: 5px;
-	background-color: rgba(255, 0, 0, 0.422);
+	margin-right: 10px;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	background: linear-gradient(300deg, #ffffff, #ad73c9);
+	background-size: 300% 100%;
+	background-color: rgb(216, 160, 219);
+	background-position: left 100% center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+	z-index: 99;
 }
 .right_block {
-	background-color: rgba(0, 128, 0, 0.393);
+	position: absolute;
+	left: 5px;
+	width: 100%;
+	height: 600px;
+	min-height: 600px;
+	max-height: 600px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	background: linear-gradient(
+		191deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(217, 216, 145, 1) 100%
+	);
+	background-size: 300% 100%;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+	z-index: 0;
 }
