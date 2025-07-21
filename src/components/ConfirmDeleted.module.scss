@@ -1,0 +1,37 @@
+.confirmDel_box {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 50%;
+	left: 110%;
+	transform: translateY(-50%);
+	width: 180px;
+	height: 120px;
+	border-radius: 18px;
+	color: #000;
+	background-color: #afe9e9;
+    background: linear-gradient(120deg, #85ac5b, #fcffe9, #8ca761);
+    background: linear-gradient(120deg, #5ba4ac, #e9ffff, #61a0a7);
+	border: 2px solid rgba(70, 72, 74, 0.116);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+	z-index: 999;
+
+	.h2 {
+		text-align: center;
+		line-height: 2;
+		font-size: 16px;
+		letter-spacing: 1px;
+		word-spacing: 2px;
+		text-transform: none;
+        color: #407c83;
+
+		span {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 16.5px;
+			color: #4d949c;
+			text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+		}
+	}
+}

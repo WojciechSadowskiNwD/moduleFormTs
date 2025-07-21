@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Form from "./components/Form";
 import SectionTitle from "./components/SectionTitle";
 import CustomInput from "./components/CustomInput";
 import InfoBoard from "./components/InfoBoard";
 import CustomButton from "./components/CustomButton";
+import ConfirmDeleted from "./components/ConfirmDeleted";
 
 type FormDataProps = {
 	name: string;
@@ -22,12 +23,29 @@ function App() {
 	const inputEmailRef = useRef<HTMLInputElement>(null);
 
 	const [formData, setFormData] = useState<FormDataProps | null>(null);
+	const [isConfirmDeleted, setIsConfirmDeleted] = useState<boolean>(false);
 
 	function showData(data: unknown) {
 		const currentData = data as FormDataProps;
+		// console.log(currentData);
 		setFormData(currentData);
-		console.log(currentData);
 	}
+
+	function clearData() {
+		setFormData(null);
+		setIsConfirmDeleted(true);
+	}
+
+	// Turn ON, when state isConfirm... = true
+	useEffect(() => {
+		if (isConfirmDeleted === true) {
+			const timerId = setTimeout(() => {
+				setIsConfirmDeleted(false);
+			}, 2000);
+
+			return () => clearTimeout(timerId);
+		}
+	}, [isConfirmDeleted]);
 
 	return (
 		<div className="container">
@@ -69,12 +87,15 @@ function App() {
 				<motion.div
 					className="block right_block"
 					initial={{ x: 0, opacity: 0 }}
-					animate={{ x: '100%', opacity: 1 }}
+					animate={{ x: "100%", opacity: 1 }}
 					transition={{ duration: 0.5, ease: "easeOut" }}
 				>
-					<InfoBoard data={formData} />
+					<InfoBoard data={formData} onClear={clearData} />
 				</motion.div>
 			)}
+			<AnimatePresence>
+				{isConfirmDeleted && <ConfirmDeleted />}
+			</AnimatePresence>
 		</div>
 	);
 }

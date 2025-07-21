@@ -14,7 +14,6 @@ export default function Form({ children, showFun }: FormProps) {
 		const formData = new FormData(event.currentTarget);
 		const data = Object.fromEntries(formData);
 		const { name, surname, age, phone, email } = data;
-		
 
 		//FORM VALIDATION:
 		// use REGEX
@@ -27,13 +26,20 @@ export default function Form({ children, showFun }: FormProps) {
 			/^[A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]{3,9}$/.test(surname);
 		const isEmailCorr =
 			typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-		const isAgeCorr = typeof age === "string" &&  /^[0-9]{1,2}$/.test(age);
-		const isPhoneCorr = typeof phone === "string" &&  /^[0-9]{9}$/.test(phone);
+		const isAgeCorr = typeof age === "string" && /^[0-9]{1,2}$/.test(age);
+		const isPhoneCorr = typeof phone === "string" && /^[0-9]{9}$/.test(phone);
 
 		// All fields are filled? true/false
 		const allFilled = Object.values(data).every((value) => value !== "");
 
-		if (allFilled && isNameCorr && isSurnameCorr && isEmailCorr && isAgeCorr && isPhoneCorr) {
+		if (
+			allFilled &&
+			isNameCorr &&
+			isSurnameCorr &&
+			isEmailCorr &&
+			isAgeCorr &&
+			isPhoneCorr
+		) {
 			setWindowError(false);
 			showFun(data);
 			event.currentTarget.reset();

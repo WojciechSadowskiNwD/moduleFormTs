@@ -11,10 +11,11 @@ type InfoBoardProps = {
 		age: number;
 		phone: number;
 		email: string;
-	};
+	}
+	onClear: () => void;
 };
 
-export default function InfoBoard({ data }: InfoBoardProps) {
+export default function InfoBoard({ data, onClear }: InfoBoardProps) {
 	return (
 		<div className={styles.InfoBoard_box}>
 			<SectionTitle>Your's informations</SectionTitle>
@@ -25,7 +26,7 @@ export default function InfoBoard({ data }: InfoBoardProps) {
 
 			
 			<div className={styles.white_section}></div>
-			<CustomButton delColors={true}>Clear</CustomButton>
+			<CustomButton delColors={true} onClear={onClear} >Clear</CustomButton>
 		</div>
 	);
 }
